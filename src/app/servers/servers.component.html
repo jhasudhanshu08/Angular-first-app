@@ -10,13 +10,18 @@
     class="form-control"
     [(ngModel)] = "serverName">
 
-<p>{{ serverName }}</p>
+<!-- <p>{{ serverName }}</p> -->
+
 
 <button class="btn btn-primary" 
 [disabled]="!allowNewServer"
-(click)="onCreateServer()">    
+(click)="onCreateServer()"
+[disabled]="serverName === ''"
+>    
     Add Server
 </button>
-<p>{{ serverCreationStatus }}</p>
+<br>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<p *ngIf="serverCreated">Server was Created, Server name is {{ serverName }}</p>
 <app-server></app-server>
 <app-server></app-server>
